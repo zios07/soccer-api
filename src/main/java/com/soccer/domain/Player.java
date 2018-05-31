@@ -3,6 +3,7 @@ package com.soccer.domain;
 import javax.persistence.*;
 
 @Entity
+@Table(name =  "PLAYER_TABLE")
 public class Player {
 
     @Id

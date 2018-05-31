@@ -1,11 +1,9 @@
 package com.soccer.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
+@Table(name =  "USER_TABLE")
 public class User {
 
     @Id

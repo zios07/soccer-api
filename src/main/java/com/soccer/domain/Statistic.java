@@ -3,8 +3,10 @@ package com.soccer.domain;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name =  "STATISTIC_TABLE")
 public class Statistic {
 
     @Id
