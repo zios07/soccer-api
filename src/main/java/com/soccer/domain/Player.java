@@ -25,6 +25,12 @@ public class Player {
 
     private String password;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Address address;
+
+    @ManyToOne
+    private Team team;
+
     @OneToOne
     private Statistic statistic;
 
@@ -33,7 +39,7 @@ public class Player {
     }
 
     public Player(String firstName, String lastName, String email, String username, String password, Statistic statistic,
-                  String preferredPosition, byte[] image) {
+                  String preferredPosition, byte[] image, Team team, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -42,7 +48,10 @@ public class Player {
         this.statistic = statistic;
         this.preferredPosition = preferredPosition;
         this.image = image;
+        this.team = team;
+        this.address = address;
     }
+
 
     public Long getId() {
         return id;
@@ -115,5 +124,21 @@ public class Player {
     public void setImage(byte[] image) {
         this.image = image;
     }
+
+  public Team getTeam() {
+    return team;
+  }
+
+  public void setTeam(Team team) {
+    this.team = team;
+  }
+
+  public Address getAddress() {
+    return address;
+  }
+
+  public void setAddress(Address address) {
+    this.address = address;
+  }
 }
 

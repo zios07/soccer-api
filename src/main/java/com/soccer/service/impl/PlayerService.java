@@ -10,13 +10,13 @@ import java.util.List;
 
 @Service
 public class PlayerService implements IPlayerService{
-    
+
     @Autowired
     private PlayerRepository repo;
-    
+
     @Override
     public Player getById(Long id) {
-        return repo.findById(id).get();
+        return repo.findOne(id);
     }
 
     @Override
@@ -31,6 +31,6 @@ public class PlayerService implements IPlayerService{
 
     @Override
     public void remove(Long id) {
-        repo.deleteById(id);
+        repo.delete(id);
     }
 }

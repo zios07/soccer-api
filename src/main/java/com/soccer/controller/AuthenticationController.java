@@ -1,17 +1,34 @@
 package com.soccer.controller;
 
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.soccer.domain.Player;
+import com.soccer.dto.UserDto;
+import com.soccer.service.Exception.NotFoundException;
+import com.soccer.service.IPlayerService;
+import com.soccer.service.impl.AuthService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "api/auth")
 public class AuthenticationController {
 
-    @GetMapping(value = "login")
-    public String test() {
-        return "auth works";
+  @Autowired
+  private IPlayerService service;
+
+  @Autowired
+  private AuthService authService;
+
+    @PostMapping(value = "login")
+    public ResponseEntity<Player> login(@RequestBody UserDto user) throws NotFoundException {
+        return new ResponseEntity<>(authService.login(user), HttpStatus.OK);
+    }
+
+    @PostMapping(value = "register")
+    public ResponseEntity<Player> regiser(@RequestBody Player player) {
+      return new ResponseEntity<>(service.create(player), HttpStatus.CREATED);
     }
 
 }

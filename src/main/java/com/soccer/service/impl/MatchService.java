@@ -16,7 +16,7 @@ public class MatchService implements IMatchService{
 
     @Override
     public Match getById(Long id) {
-        return repo.findById(id).get();
+        return repo.findOne(id);
     }
 
     @Override
@@ -31,6 +31,6 @@ public class MatchService implements IMatchService{
 
     @Override
     public void remove(Long id) {
-        repo.deleteById(id);
+        repo.delete(id);
     }
 }

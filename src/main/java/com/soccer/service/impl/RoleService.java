@@ -16,7 +16,7 @@ public class RoleService implements IRoleService{
 
     @Override
     public Role getById(Long id) {
-        return repo.findById(id).get();
+        return repo.findOne(id);
     }
 
     @Override
@@ -31,6 +31,6 @@ public class RoleService implements IRoleService{
 
     @Override
     public void remove(Long id) {
-        repo.deleteById(id);
+        repo.delete(id);
     }
 }

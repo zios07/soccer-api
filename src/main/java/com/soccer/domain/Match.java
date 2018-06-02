@@ -4,104 +4,111 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name =  "MATCH_TABLE")
+@Table(name = "MATCH_TABLE")
 public class Match {
 
-    @Id
-    @GeneratedValue
-    private Long id;
+  @Id
+  @GeneratedValue
+  private Long id;
 
-    private String label;
+  private String label;
 
-    @ManyToOne
-    private City city;
+  @ManyToOne
+  private Address address;
 
-    @Temporal(TemporalType.TIMESTAMP)
-    private Date date;
+  @Temporal(TemporalType.TIMESTAMP)
+  private Date date;
 
-    @ManyToOne
-    private Pitch pitch;
+  @ManyToOne
+  private Pitch pitch;
 
-    @ManyToOne
-    private Team host;
+  @ManyToOne
+  private Team host;
 
-    @ManyToOne
-    private Team guest;
+  @ManyToOne
+  private Team guest;
 
-    protected static int nb = 1;
+  protected static int nb = 1;
 
-    @PrePersist
-    protected void setMatchLabel() {
-        this.setLabel("Match "+nb);
-        nb++;
-    }
+  @PrePersist
+  protected void setMatchLabel() {
+    this.setLabel("Match " + nb);
+    nb++;
+  }
 
-    public Match() {
+  public Match() {
 
-    }
+  }
 
-    public Match(City city, Date date, Pitch pitch, Team host, Team guest) {
-        this.city = city;
-        this.date = date;
-        this.pitch = pitch;
-        this.host = host;
-        this.guest = guest;
-    }
+  public Match(Address address, Date date, Pitch pitch, Team host, Team guest) {
+    this.date = date;
+    this.pitch = pitch;
+    this.host = host;
+    this.guest = guest;
+    this.address = address;
+  }
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public City getCity() {
-        return city;
-    }
+  public Date getDate() {
+    return date;
+  }
 
-    public void setCity(City city) {
-        this.city = city;
-    }
+  public void setDate(Date date) {
+    this.date = date;
+  }
 
-    public Date getDate() {
-        return date;
-    }
+  public Pitch getPitch() {
+    return pitch;
+  }
 
-    public void setDate(Date date) {
-        this.date = date;
-    }
+  public void setPitch(Pitch pitch) {
+    this.pitch = pitch;
+  }
 
-    public Pitch getPitch() {
-        return pitch;
-    }
+  public Team getHost() {
+    return host;
+  }
 
-    public void setPitch(Pitch pitch) {
-        this.pitch = pitch;
-    }
+  public void setHost(Team host) {
+    this.host = host;
+  }
 
-    public Team getHost() {
-        return host;
-    }
+  public Team getGuest() {
+    return guest;
+  }
 
-    public void setHost(Team host) {
-        this.host = host;
-    }
+  public void setGuest(Team guest) {
+    this.guest = guest;
+  }
 
-    public Team getGuest() {
-        return guest;
-    }
+  public String getLabel() {
+    return label;
+  }
 
-    public void setGuest(Team guest) {
-        this.guest = guest;
-    }
+  public void setLabel(String label) {
+    this.label = label;
+  }
 
-    public String getLabel() {
-        return label;
-    }
+  public Address getAddress() {
+    return address;
+  }
 
-    public void setLabel(String label) {
-        this.label = label;
-    }
+  public void setAddress(Address address) {
+    this.address = address;
+  }
 
+  public static int getNb() {
+    return nb;
+  }
+
+  public static void setNb(int nb) {
+    Match.nb = nb;
+  }
 }

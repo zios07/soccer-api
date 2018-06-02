@@ -10,7 +10,11 @@ public class Team {
     @Id @GeneratedValue
     private Long id;
 
-    @OneToMany
+    private String code;
+
+    private String name;
+
+    @OneToMany(mappedBy = "team")
     private List<Player> players;
 
     @ManyToMany
@@ -20,32 +24,50 @@ public class Team {
 
     }
 
-    public Team(List<Player> players, List<Match> matchs) {
-        this.players = players;
-        this.matchs = matchs;
-    }
+  public Team(String code, String name, List<Player> players, List<Match> matchs) {
+    this.code = code;
+    this.name = name;
+    this.players = players;
+    this.matchs = matchs;
+  }
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public List<Player> getPlayers() {
-        return players;
-    }
+  public String getCode() {
+    return code;
+  }
 
-    public void setPlayers(List<Player> players) {
-        this.players = players;
-    }
+  public void setCode(String code) {
+    this.code = code;
+  }
 
-    public List<Match> getMatchs() {
-        return matchs;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setMatchs(List<Match> matchs) {
-        this.matchs = matchs;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
+
+  public List<Player> getPlayers() {
+    return players;
+  }
+
+  public void setPlayers(List<Player> players) {
+    this.players = players;
+  }
+
+  public List<Match> getMatchs() {
+    return matchs;
+  }
+
+  public void setMatchs(List<Match> matchs) {
+    this.matchs = matchs;
+  }
 }
