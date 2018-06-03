@@ -13,7 +13,7 @@ public class Match {
 
   private String label;
 
-  @ManyToOne
+  @ManyToOne(cascade = CascadeType.ALL)
   private Address address;
 
   @Temporal(TemporalType.TIMESTAMP)
@@ -28,6 +28,18 @@ public class Match {
   @ManyToOne
   private Team guest;
 
+  @ManyToOne
+  private Team winner;
+
+  private int hostGoals;
+
+  private int guestGoals;
+
+  private String statuts;
+
+  @ManyToOne
+  private Player manOfTheMatch;
+
   protected static int nb = 1;
 
   @PrePersist
@@ -40,12 +52,18 @@ public class Match {
 
   }
 
-  public Match(Address address, Date date, Pitch pitch, Team host, Team guest) {
+  public Match(String label, Address address, Date date, Pitch pitch, Team host, Team guest, Team winner, int hostGoals, int guestGoals, Player manOfTheMatch, String statuts) {
+    this.label = label;
+    this.address = address;
     this.date = date;
     this.pitch = pitch;
     this.host = host;
     this.guest = guest;
-    this.address = address;
+    this.winner = winner;
+    this.hostGoals = hostGoals;
+    this.guestGoals = guestGoals;
+    this.manOfTheMatch = manOfTheMatch;
+    this.statuts = statuts;
   }
 
   public Long getId() {
@@ -110,5 +128,45 @@ public class Match {
 
   public static void setNb(int nb) {
     Match.nb = nb;
+  }
+
+  public Team getWinner() {
+    return winner;
+  }
+
+  public void setWinner(Team winner) {
+    this.winner = winner;
+  }
+
+  public int getHostGoals() {
+    return hostGoals;
+  }
+
+  public void setHostGoals(int hostGoals) {
+    this.hostGoals = hostGoals;
+  }
+
+  public int getGuestGoals() {
+    return guestGoals;
+  }
+
+  public void setGuestGoals(int guestGoals) {
+    this.guestGoals = guestGoals;
+  }
+
+  public Player getManOfTheMatch() {
+    return manOfTheMatch;
+  }
+
+  public void setManOfTheMatch(Player manOfTheMatch) {
+    this.manOfTheMatch = manOfTheMatch;
+  }
+
+  public String getStatuts() {
+    return statuts;
+  }
+
+  public void setStatuts(String statuts) {
+    this.statuts = statuts;
   }
 }

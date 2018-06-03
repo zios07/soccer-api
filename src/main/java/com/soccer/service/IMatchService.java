@@ -11,6 +11,8 @@ public interface IMatchService {
 
     List<Match> getAll();
 
+    List<Match> getTodayMatches();
+
     Match create(Match match);
 
     void remove(Long id);
