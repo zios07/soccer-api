@@ -10,7 +10,7 @@ import java.util.List;
 public interface MatchRepository  extends JpaRepository<Match, Long> {
 
 
-  @Query(nativeQuery = true, value = "select * from match_table m where  DATEDIFF(sysdate(), m.date) = 0")
+  @Query(nativeQuery = true, value = "select * from match_table m where  DATEDIFF(CURRENT_DATE, m.date) = 0")
   List<Match> findTodayMatches();
 
 }
