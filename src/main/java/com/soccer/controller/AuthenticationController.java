@@ -3,6 +3,7 @@ package com.soccer.controller;
 
 import com.soccer.domain.Player;
 import com.soccer.dto.UserDto;
+import com.soccer.service.Exception.BadCredentials;
 import com.soccer.service.Exception.NotFoundException;
 import com.soccer.service.IPlayerService;
 import com.soccer.service.impl.AuthService;
@@ -22,12 +23,12 @@ public class AuthenticationController {
   private AuthService authService;
 
     @PostMapping(value = "login")
-    public ResponseEntity<Player> login(@RequestBody UserDto user) throws NotFoundException {
+    public ResponseEntity<Player> login(@RequestBody UserDto user) throws NotFoundException, BadCredentials {
         return new ResponseEntity<>(authService.login(user), HttpStatus.OK);
     }
 
     @PostMapping(value = "register")
-    public ResponseEntity<Player> regiser(@RequestBody Player player) {
+    public ResponseEntity<Player> register(@RequestBody Player player) {
       return new ResponseEntity<>(service.create(player), HttpStatus.CREATED);
     }
 

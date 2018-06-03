@@ -20,13 +20,13 @@ public class UserService implements IUserService{
         return repo.findOne(id);
     }
 
-  @Override
-  public User findByUsername(String username) throws NotFoundException {
-    User user = repo.findByUsername(username);
-    if(user == null)
-      throw new NotFoundException("USER.NOT.FOUND", "User with username : "+username+" not found");
-    return user;
-  }
+    @Override
+    public User findByUsername(String username) throws NotFoundException {
+      User user = repo.findByUsername(username);
+      if(user == null)
+        throw new NotFoundException("USER.NOT.FOUND", "User with username : "+username+" not found");
+      return user;
+    }
 
   @Override
     public List<User> getAll() {
