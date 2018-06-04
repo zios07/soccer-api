@@ -22,10 +22,10 @@ public class Match {
   @ManyToOne
   private Pitch pitch;
 
-  @ManyToOne
+  @ManyToOne(cascade = CascadeType.PERSIST)
   private Team host;
 
-  @ManyToOne
+  @ManyToOne(cascade = CascadeType.PERSIST)
   private Team guest;
 
   @ManyToOne
