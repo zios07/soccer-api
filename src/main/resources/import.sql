@@ -1,6 +1,6 @@
 insert into city_table values (1, 'PAR', 'PARIS'), (2, 'LON', 'LONDON'), (3, 'BER', 'BERLIN'), (4, 'MAD', 'MADRID');
 
-insert into player_table values (1, 'zios@gmail.com', 'zakaria', null, 'kaoukab', 'zios', null, 'zios', null, null, null);
+insert into player_table values (1, 'zios@gmail.com', 'zakaria', null, 'kaoukab', 'zios', null, 'zios', null, null);
 
 insert into pitch_table values (1, 'Pitch 1', 1567, 10);
 insert into pitch_table values (2, 'Pitch 2', 1562, 12);

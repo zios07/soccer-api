@@ -29,7 +29,7 @@ public class AuthenticationController {
 
     @PostMapping(value = "register")
     public ResponseEntity<Player> register(@RequestBody Player player) {
-      return new ResponseEntity<>(service.create(player), HttpStatus.CREATED);
+      return new ResponseEntity<>(service.save(player), HttpStatus.CREATED);
     }
 
 }
