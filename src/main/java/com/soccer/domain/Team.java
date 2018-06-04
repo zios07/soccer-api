@@ -5,7 +5,7 @@ import java.util.List;
 
 @Entity
 @Table(name =  "TEAM_TABLE")
-public class Team {
+public class  Team {
 
     @Id @GeneratedValue
     private Long id;

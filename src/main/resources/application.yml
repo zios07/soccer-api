@@ -16,16 +16,31 @@ server:
 #            dialect: org.hibernate.dialect.MySQL5InnoDBDialect
 
 
+#spring:
+#  datasource:
+#    driver-class-name: org.postgresql.Driver
+#    password: ${JDBC_DATABASE_PASSWORD}
+#    url: ${JDBC_DATABASE_URL}
+#    username: ${JDBC_DATABASE_USERNAME}
+#  jpa:
+#    show-sql: true
+#    hibernate:
+#        ddl-auto: create
+#    properties:
+#        hibernate:
+#            dialect: org.hibernate.dialect.PostgreSQL94Dialect
+
+
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    password: ${JDBC_DATABASE_PASSWORD}
-    url: ${JDBC_DATABASE_URL}
-    username: ${JDBC_DATABASE_USERNAME}
+    password: root
+    url: jdbc:postgresql://localhost/soccerapi
+    username: postgres
   jpa:
     show-sql: true
     hibernate:
-        ddl-auto: update
+        ddl-auto: create
     properties:
         hibernate:
             dialect: org.hibernate.dialect.PostgreSQL94Dialect
