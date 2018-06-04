@@ -1,9 +1,10 @@
 package com.soccer.domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name =  "PLAYER_TABLE")
+@Table(name = "PLAYER_TABLE")
 public class Player {
 
     @Id
@@ -27,9 +28,12 @@ public class Player {
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Address address;
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Team team;
 
-    @ManyToOne
-    private Team team;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Participation> participations;
 
     @OneToOne
     private Statistic statistic;
@@ -39,7 +43,7 @@ public class Player {
     }
 
     public Player(String firstName, String lastName, String email, String username, String password, Statistic statistic,
-                  String preferredPosition, byte[] image, Team team, Address address) {
+                  String preferredPosition, byte[] image, Address address, List<Participation> participations) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -48,8 +52,9 @@ public class Player {
         this.statistic = statistic;
         this.preferredPosition = preferredPosition;
         this.image = image;
-        this.team = team;
+//        this.team = team;
         this.address = address;
+        this.participations = participations;
     }
 
 
@@ -125,20 +130,28 @@ public class Player {
         this.image = image;
     }
 
-  public Team getTeam() {
-    return team;
-  }
+//    public Team getTeam() {
+//        return team;
+//    }
+//
+//    public void setTeam(Team team) {
+//        this.team = team;
+//    }
 
-  public void setTeam(Team team) {
-    this.team = team;
-  }
+    public Address getAddress() {
+        return address;
+    }
 
-  public Address getAddress() {
-    return address;
-  }
+    public void setAddress(Address address) {
+        this.address = address;
+    }
 
-  public void setAddress(Address address) {
-    this.address = address;
-  }
+    public List<Participation> getParticipations() {
+        return participations;
+    }
+
+    public void setParticipations(List<Participation> participations) {
+        this.participations = participations;
+    }
 }
 

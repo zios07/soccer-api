@@ -1,10 +1,14 @@
 package com.soccer.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name =  "TEAM_TABLE")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class  Team {
 
     @Id @GeneratedValue
@@ -14,21 +18,22 @@ public class  Team {
 
     private String name;
 
-    @OneToMany(mappedBy = "team")
+    @OneToMany(fetch=FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
     private List<Player> players;
 
     @ManyToMany
-    private List<Match> matchs;
+    private List<Match> matches;
 
     public Team() {
 
     }
 
-  public Team(String code, String name, List<Player> players, List<Match> matchs) {
+  public Team(String code, String name, List<Player> players, List<Match> matches) {
     this.code = code;
     this.name = name;
     this.players = players;
-    this.matchs = matchs;
+    this.matches = matches;
   }
 
   public Long getId() {
@@ -63,11 +68,11 @@ public class  Team {
     this.players = players;
   }
 
-  public List<Match> getMatchs() {
-    return matchs;
+  public List<Match> getMatches() {
+    return matches;
   }
 
-  public void setMatchs(List<Match> matchs) {
-    this.matchs = matchs;
+  public void setMatches(List<Match> matches) {
+    this.matches = matches;
   }
 }

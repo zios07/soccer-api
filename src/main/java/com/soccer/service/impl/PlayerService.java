@@ -1,29 +1,37 @@
 package com.soccer.service.impl;
 
 import com.soccer.domain.Player;
+import com.soccer.domain.Team;
 import com.soccer.domain.User;
+import com.soccer.dto.JoinRequest;
 import com.soccer.repository.PlayerRepository;
+import com.soccer.repository.TeamRepository;
 import com.soccer.service.Exception.NotFoundException;
 import com.soccer.service.IPlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class PlayerService implements IPlayerService{
 
     @Autowired
-    private PlayerRepository repo;
+    private PlayerRepository playerRepository;
+
+    @Autowired
+    private TeamRepository teamRepository;
 
     @Override
     public Player getById(Long id) {
-        return repo.findOne(id);
+        return playerRepository.findOne(id);
     }
 
   @Override
   public Player findByUsername(String username) throws NotFoundException {
-    Player player = repo.findByUsername(username);
+    Player player = playerRepository.findByUsername(username);
     if(player == null)
       throw new NotFoundException("PLAYER.NOT.FOUND", "Player with username : "+username+" not found");
     return player;
@@ -31,16 +39,16 @@ public class PlayerService implements IPlayerService{
 
     @Override
     public List<Player> getAll() {
-        return repo.findAll();
+        return playerRepository.findAll();
     }
 
     @Override
-    public Player create(Player player) {
-        return repo.save(player);
+    public Player save(Player player) {
+        return playerRepository.save(player);
     }
 
     @Override
     public void remove(Long id) {
-        repo.delete(id);
+        playerRepository.delete(id);
     }
 }
