@@ -33,4 +33,9 @@ public class PlayerController {
         return new ResponseEntity<>(service.save(player), HttpStatus.OK);
     }
 
+    @DeleteMapping( value = "{playerId}/match/{matchId}")
+    public ResponseEntity<Player> quitMatch(@PathVariable Long playerId, @PathVariable Long matchId) {
+      return new ResponseEntity<Player>(service.quitMatch(playerId, matchId), HttpStatus.OK);
+    }
+
 }

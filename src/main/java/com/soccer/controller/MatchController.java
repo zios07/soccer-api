@@ -30,4 +30,9 @@ public class MatchController {
     public Match create(@RequestBody Match match) {
       return this.service.create(match);
     }
+
+    @GetMapping(value = "player/{id}")
+    public List<Match> getJoinedMatch(@PathVariable Long id) {
+      return service.findJoinedMatch(id);
+    }
 }

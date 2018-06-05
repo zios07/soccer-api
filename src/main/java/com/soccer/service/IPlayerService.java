@@ -17,4 +17,6 @@ public interface IPlayerService {
     Player save(Player player);
 
     void remove(Long id);
+
+    Player quitMatch(Long playerId, Long matchId);
 }
