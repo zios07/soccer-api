@@ -13,6 +13,8 @@ public interface IMatchService {
 
     List<Match> getTodayMatches();
 
+    List<Match> findJoinedMatch(Long id);
+
     Match create(Match match);
 
     void remove(Long id);
