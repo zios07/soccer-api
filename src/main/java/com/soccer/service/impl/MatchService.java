@@ -6,10 +6,11 @@ import com.soccer.repository.MatchRepository;
 import com.soccer.repository.ParticipationRepository;
 import com.soccer.service.IMatchService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -27,8 +28,8 @@ public class MatchService implements IMatchService {
     }
 
     @Override
-    public List<Match> getAll() {
-        return repo.findAll();
+    public Page<Match> getAll(int page, int size) {
+        return repo.findAll(new PageRequest(page, size));
     }
 
     @Override
