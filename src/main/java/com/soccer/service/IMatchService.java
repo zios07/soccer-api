@@ -1,6 +1,7 @@
 package com.soccer.service;
 
 import com.soccer.domain.Match;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface IMatchService {
 
     Match getById(Long id);
 
-    List<Match> getAll();
+    Page<Match> getAll(int page, int size);
 
     List<Match> getTodayMatches();
 
