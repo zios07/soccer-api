@@ -1,8 +1,7 @@
-insert into city_table values (1, 'PAR', 'PARIS'), (2, 'LON', 'LONDON'), (3, 'BER', 'BERLIN'), (4, 'MAD', 'MADRID');
 
-insert into address_table values (1, 5678, 1);
-insert into address_table values (2, 5678, 2);
-insert into address_table values (3, 12030, 1 );
+insert into address_table values (1, "Temara", 12030);
+insert into address_table values (2, "Paris", 12030);
+insert into address_table values (3, "Tokyo", 12030);
 
 insert into player_table values (1, 'zios@gmail.com', 'zakaria', null, 'kaoukab', 'zios', null, 'zios', 1, null);
 
@@ -23,13 +22,13 @@ insert into team_table (id, code, name)  values (9, 'DOR', 'Boroussia Dortmund')
 
 
 
-INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, host_id, guest_id, pitch_id) VALUES ('1', '2018-06-06 00:00:00', '0', '0', 'Match 1', '1', 1, 2, 1);
-INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, host_id, guest_id, pitch_id) VALUES ('2', '2018-06-06 00:00:00', '0', '0', 'Match 2', '2', 4, 3, 2);
-INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, host_id, guest_id, pitch_id) VALUES ('3', '2018-06-05 00:00:00', '0', '0', 'Match 3', '1', 5, 6, 1);
-INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, host_id, guest_id, pitch_id) VALUES ('4', '2018-06-05 00:00:00', '0', '0', 'Match 4', '3', 7, 8, 3);
-INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, host_id, guest_id, pitch_id) VALUES ('5', '2018-06-05 00:00:00', '0', '0', 'Match 5', '3', 9, 1, 2);
-INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, host_id, guest_id, pitch_id) VALUES ('6', '2018-06-06 00:00:00', '0', '0', 'Match 6', '1', 3, 6, 1);
-INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, host_id, guest_id, pitch_id) VALUES ('7', '2018-06-07 00:00:00', '0', '0', 'Match 7', '2', 5, 2, 3);
-INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, host_id, guest_id, pitch_id) VALUES ('8', '2018-06-07 00:00:00', '0', '0', 'Match 8', '1', 8, 9, 2);
-INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, host_id, guest_id, pitch_id) VALUES ('9', '2018-06-07 00:00:00', '0', '0', 'Match 9', '2', 7, 4, 3);
+INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, pitch_id, players_count, available_places) VALUES ('1', '2018-06-06 00:00:00', '0', '0', 'Match 1', '1', 1, 10, 10);
+INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, pitch_id, players_count, available_places) VALUES ('2', '2018-06-06 00:00:00', '0', '0', 'Match 2', '2', 2, 10, 10);
+INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, pitch_id, players_count, available_places) VALUES ('3', '2018-06-05 00:00:00', '0', '0', 'Match 3', '1', 1, 14, 14);
+INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, pitch_id, players_count, available_places) VALUES ('4', '2018-06-05 00:00:00', '0', '0', 'Match 4', '3', 3, 14, 14);
+INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, pitch_id, players_count, available_places) VALUES ('5', '2018-06-05 00:00:00', '0', '0', 'Match 5', '3', 2, 14, 12);
+INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, pitch_id, players_count, available_places) VALUES ('6', '2018-06-06 00:00:00', '0', '0', 'Match 6', '1', 1, 22, 15);
+INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, pitch_id, players_count, available_places) VALUES ('7', '2018-06-07 00:00:00', '0', '0', 'Match 7', '2', 3, 14, 14);
+INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, pitch_id, players_count, available_places) VALUES ('8', '2018-06-07 00:00:00', '0', '0', 'Match 8', '1', 2, 22, 11);
+INSERT INTO match_table (id, date, guest_goals, host_goals, label, address_id, pitch_id, players_count, available_places) VALUES ('9', '2018-06-07 00:00:00', '0', '0', 'Match 9', '2', 3, 10, 1);
 

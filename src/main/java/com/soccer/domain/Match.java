@@ -22,11 +22,9 @@ public class Match {
   @ManyToOne
   private Pitch pitch;
 
-  @ManyToOne(cascade = CascadeType.PERSIST)
-  private Team host;
+  private int playersCount;
 
-  @ManyToOne(cascade = CascadeType.PERSIST)
-  private Team guest;
+  private int availablePlaces;
 
   @ManyToOne
   private Team winner;
@@ -52,18 +50,18 @@ public class Match {
 
   }
 
-  public Match(String label, Address address, Date date, Pitch pitch, Team host, Team guest, Team winner, int hostGoals, int guestGoals, Player manOfTheMatch, String statuts) {
+  public Match(String label, Address address, Date date, Pitch pitch, int playersCount, int availablePlaces, Team winner, int hostGoals, int guestGoals, String statuts, Player manOfTheMatch) {
     this.label = label;
     this.address = address;
     this.date = date;
     this.pitch = pitch;
-    this.host = host;
-    this.guest = guest;
+    this.playersCount = playersCount;
+    this.availablePlaces = availablePlaces;
     this.winner = winner;
     this.hostGoals = hostGoals;
     this.guestGoals = guestGoals;
-    this.manOfTheMatch = manOfTheMatch;
     this.statuts = statuts;
+    this.manOfTheMatch = manOfTheMatch;
   }
 
   public Long getId() {
@@ -72,38 +70,6 @@ public class Match {
 
   public void setId(Long id) {
     this.id = id;
-  }
-
-  public Date getDate() {
-    return date;
-  }
-
-  public void setDate(Date date) {
-    this.date = date;
-  }
-
-  public Pitch getPitch() {
-    return pitch;
-  }
-
-  public void setPitch(Pitch pitch) {
-    this.pitch = pitch;
-  }
-
-  public Team getHost() {
-    return host;
-  }
-
-  public void setHost(Team host) {
-    this.host = host;
-  }
-
-  public Team getGuest() {
-    return guest;
-  }
-
-  public void setGuest(Team guest) {
-    this.guest = guest;
   }
 
   public String getLabel() {
@@ -122,12 +88,36 @@ public class Match {
     this.address = address;
   }
 
-  public static int getNb() {
-    return nb;
+  public Date getDate() {
+    return date;
   }
 
-  public static void setNb(int nb) {
-    Match.nb = nb;
+  public void setDate(Date date) {
+    this.date = date;
+  }
+
+  public Pitch getPitch() {
+    return pitch;
+  }
+
+  public void setPitch(Pitch pitch) {
+    this.pitch = pitch;
+  }
+
+  public int getPlayersCount() {
+    return playersCount;
+  }
+
+  public void setPlayersCount(int playersCount) {
+    this.playersCount = playersCount;
+  }
+
+  public int getAvailablePlaces() {
+    return availablePlaces;
+  }
+
+  public void setAvailablePlaces(int availablePlaces) {
+    this.availablePlaces = availablePlaces;
   }
 
   public Team getWinner() {
@@ -154,6 +144,14 @@ public class Match {
     this.guestGoals = guestGoals;
   }
 
+  public String getStatuts() {
+    return statuts;
+  }
+
+  public void setStatuts(String statuts) {
+    this.statuts = statuts;
+  }
+
   public Player getManOfTheMatch() {
     return manOfTheMatch;
   }
@@ -162,11 +160,11 @@ public class Match {
     this.manOfTheMatch = manOfTheMatch;
   }
 
-  public String getStatuts() {
-    return statuts;
+  public static int getNb() {
+    return nb;
   }
 
-  public void setStatuts(String statuts) {
-    this.statuts = statuts;
+  public static void setNb(int nb) {
+    Match.nb = nb;
   }
 }

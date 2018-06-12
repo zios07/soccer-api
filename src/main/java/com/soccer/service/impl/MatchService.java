@@ -2,12 +2,14 @@ package com.soccer.service.impl;
 
 import com.soccer.domain.Match;
 import com.soccer.domain.Participation;
+import com.soccer.domain.Player;
 import com.soccer.repository.MatchRepository;
 import com.soccer.repository.ParticipationRepository;
 import com.soccer.service.IMatchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -29,7 +31,7 @@ public class MatchService implements IMatchService {
 
     @Override
     public Page<Match> getAll(int page, int size) {
-        return repo.findAll(new PageRequest(page, size));
+        return repo.findAll(new PageRequest(page, size, Sort.Direction.DESC, "date"));
     }
 
     @Override
@@ -49,9 +51,8 @@ public class MatchService implements IMatchService {
         return matches;
     }
 
-  @Override
+    @Override
     public Match create(Match match) {
-        match = setTeamsCode(match);
         return repo.save(match);
     }
 
@@ -60,19 +61,5 @@ public class MatchService implements IMatchService {
         repo.delete(id);
     }
 
-    public Match setTeamsCode(Match match) {
-        if(match.getHost() != null) {
-            if (match.getHost().getCode() == null && match.getHost().getName() != null) {
-                String hostCode = match.getHost().getName().substring(0, 3).toUpperCase();
-                match.getHost().setCode(hostCode);
-            }
-        }
-        if(match.getGuest() != null) {
-            if (match.getGuest().getCode() == null && match.getGuest().getName() != null) {
-                String hostCode = match.getGuest().getName().substring(0, 3).toUpperCase();
-                match.getGuest().setCode(hostCode);
-            }
-        }
-        return match;
-    }
 }
+
