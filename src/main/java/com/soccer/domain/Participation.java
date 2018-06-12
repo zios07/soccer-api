@@ -10,9 +10,6 @@ public class Participation {
   @GeneratedValue
   private Long id;
 
-  @ManyToOne
-  private Team team;
-
   @OneToOne
   private Match match;
 
@@ -22,8 +19,7 @@ public class Participation {
 
   }
 
-  public Participation(Team team, Match match, Long player) {
-    this.team = team;
+  public Participation(Match match, Long player) {
     this.match = match;
     this.playerId = player;
   }
@@ -34,14 +30,6 @@ public class Participation {
 
   public void setId(Long id) {
     this.id = id;
-  }
-
-  public Team getTeam() {
-    return team;
-  }
-
-  public void setTeam(Team team) {
-    this.team = team;
   }
 
   public Match getMatch() {

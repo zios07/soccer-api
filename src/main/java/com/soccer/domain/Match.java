@@ -24,6 +24,8 @@ public class Match {
 
   private int playersCount;
 
+  private int availablePlaces;
+
   @ManyToOne
   private Team winner;
 
@@ -48,12 +50,13 @@ public class Match {
 
   }
 
-  public Match(String label, Address address, Date date, Pitch pitch, int playersCount, Team winner, int hostGoals, int guestGoals, String statuts, Player manOfTheMatch) {
+  public Match(String label, Address address, Date date, Pitch pitch, int playersCount, int availablePlaces, Team winner, int hostGoals, int guestGoals, String statuts, Player manOfTheMatch) {
     this.label = label;
     this.address = address;
     this.date = date;
     this.pitch = pitch;
     this.playersCount = playersCount;
+    this.availablePlaces = availablePlaces;
     this.winner = winner;
     this.hostGoals = hostGoals;
     this.guestGoals = guestGoals;
@@ -107,6 +110,14 @@ public class Match {
 
   public void setPlayersCount(int playersCount) {
     this.playersCount = playersCount;
+  }
+
+  public int getAvailablePlaces() {
+    return availablePlaces;
+  }
+
+  public void setAvailablePlaces(int availablePlaces) {
+    this.availablePlaces = availablePlaces;
   }
 
   public Team getWinner() {
