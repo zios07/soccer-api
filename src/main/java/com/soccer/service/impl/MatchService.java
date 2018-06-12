@@ -51,7 +51,6 @@ public class MatchService implements IMatchService {
 
   @Override
     public Match create(Match match) {
-        match = setTeamsCode(match);
         return repo.save(match);
     }
 
@@ -60,19 +59,4 @@ public class MatchService implements IMatchService {
         repo.delete(id);
     }
 
-    public Match setTeamsCode(Match match) {
-        if(match.getHost() != null) {
-            if (match.getHost().getCode() == null && match.getHost().getName() != null) {
-                String hostCode = match.getHost().getName().substring(0, 3).toUpperCase();
-                match.getHost().setCode(hostCode);
-            }
-        }
-        if(match.getGuest() != null) {
-            if (match.getGuest().getCode() == null && match.getGuest().getName() != null) {
-                String hostCode = match.getGuest().getName().substring(0, 3).toUpperCase();
-                match.getGuest().setCode(hostCode);
-            }
-        }
-        return match;
-    }
 }

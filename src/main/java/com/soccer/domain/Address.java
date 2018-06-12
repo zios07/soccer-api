@@ -9,15 +9,14 @@ public class Address {
   @Id @GeneratedValue
   private Long id;
 
-  @ManyToOne
-  private City city;
+  private String city;
 
   private int zip;
 
   public Address() {
   }
 
-  public Address(Long id, City city, int zip) {
+  public Address(Long id, String city, int zip) {
     this.id = id;
     this.city = city;
     this.zip = zip;
@@ -31,11 +30,11 @@ public class Address {
     this.id = id;
   }
 
-  public City getCity() {
+  public String getCity() {
     return city;
   }
 
-  public void setCity(City city) {
+  public void setCity(String city) {
     this.city = city;
   }
 

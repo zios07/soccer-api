@@ -1,8 +1,6 @@
 package com.soccer.controller;
 
 import com.soccer.domain.Player;
-import com.soccer.dto.JoinRequest;
-import com.soccer.service.ICityService;
 import com.soccer.service.IPlayerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
