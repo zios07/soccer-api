@@ -9,17 +9,19 @@ public class Address {
   @Id @GeneratedValue
   private Long id;
 
-  private String city;
+  private String value;
 
-  private int zip;
+  private double lat;
+
+  private double lng;
 
   public Address() {
   }
 
-  public Address(Long id, String city, int zip) {
-    this.id = id;
-    this.city = city;
-    this.zip = zip;
+  public Address(String value, double lat, double lng) {
+    this.value = value;
+    this.lat = lat;
+    this.lng = lng;
   }
 
   public Long getId() {
@@ -30,19 +32,27 @@ public class Address {
     this.id = id;
   }
 
-  public String getCity() {
-    return city;
+  public String getValue() {
+    return value;
   }
 
-  public void setCity(String city) {
-    this.city = city;
+  public void setValue(String value) {
+    this.value = value;
   }
 
-  public int getZip() {
-    return zip;
+  public double getLat() {
+    return lat;
   }
 
-  public void setZip(int zip) {
-    this.zip = zip;
+  public void setLat(double lat) {
+    this.lat = lat;
+  }
+
+  public double getLng() {
+    return lng;
+  }
+
+  public void setLng(double lng) {
+    this.lng = lng;
   }
 }
